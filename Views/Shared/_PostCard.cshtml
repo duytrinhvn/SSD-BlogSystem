@@ -1,0 +1,18 @@
+﻿@model Post
+@{
+    var body = Model.Body.Substring(0, 80) + "...";
+}
+<article class="card mt-4 blog-post">
+    <div class="card-body">
+        <a href="@Url.Action("Post", "Blog", new { @Model.Key })">
+            <h1 class="card-title">@Model.Title</h1>
+        </a>
+
+        <div class="card-header-pills details">
+            Posted <span>@Model.Posted</span> by <span>@Model.Author</span>
+        </div>
+        <div class="card-text content">
+            @body
+        </div>
+    </div>
+</article>

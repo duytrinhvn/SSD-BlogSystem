@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Post>
+
+<h1 class="text-center">My blog</h1>
+
+<p class="text-center">
+    <a href="@Url.Action("Create", "Blog")" class="btn btn-primary">Create New Post</a>
+</p>
+
+
+<div class="blog-posts">
+    @foreach (var post in Model)
+    {
+        @await Html.PartialAsync("_PostCard", post)
+    }
+</div>
