@@ -33,6 +33,7 @@ function onConnected() {
 
     var messageTextboxEl = document.getElementById('messageTextbox');
     messageTextboxEl.focus();
+
 }
 
 function showChatDialog() {
@@ -47,6 +48,12 @@ function sendMessage(text) {
 
 function ready() {
     setTimeout(showChatDialog, 750);
+    $("#messageTextbox").change(function () {
+        var text = $("#messageTextbox").val();
+        if (text.length > 20) {
+            return;
+        }
+    });
 
     var chatFormEl = document.getElementById('chatForm');
     chatFormEl.addEventListener('submit', function (e) {
